@@ -14,6 +14,7 @@ import { signOut } from "firebase/auth";
 import { signOutUser } from "@/redux/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "@/firebase";
+import { closeLoginModal, closeSignupModal } from "@/redux/modalSlice";
 
 function Sidebar() {
   const dispatch = useDispatch()
@@ -21,6 +22,8 @@ function Sidebar() {
   async function handleSignOut(){
       await signOut(auth)
       dispatch(signOutUser())
+      dispatch(closeSignupModal())
+      dispatch(closeLoginModal())
   }
   return (
     <div className=" h-full hidden sm:flex flex-col fixed xl:ml-24">

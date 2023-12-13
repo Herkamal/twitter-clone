@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { closeLoginModal, openLoginModal} from "@/redux/modalSlice";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/firebase";
+import { useState } from "react";
 
 function LoginModal() {
   
@@ -12,8 +13,12 @@ function LoginModal() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-  async function handleSignIN(){
+  async function handleSignIn(){
     await signInWithEmailAndPassword(auth,email,password); 
+  }
+
+ async function handleGuestSignIn(){
+    await signInWithEmailAndPassword(auth, "Guest340303495450@gmail.com" ,"ProLeaguePlayer123");
   }
 
   return (
@@ -37,9 +42,9 @@ function LoginModal() {
             <input
             placeholder="Password"
             className="h-10 mt-8 rounded-md bg-transparent border border-gray-700 p-6 " type={"password"}  onChange={e => setPassword(e.target.value)} />
-             <button className="bg-white text-black w-full font-bold text-lg p-2 mt-8 rounded-md">Create Account</button>
+             <button className="bg-white text-black w-full font-bold text-lg p-2 mt-8 rounded-md" onClick={handleSignIn}>Sign In</button>
             <h1 className="text-center mt-4 font-bold text-lg">or</h1>
-             <button className="bg-white text-black w-full font-bold text-lg p-2 rounded-md mt-4">Sign In as Guest</button>
+             <button className="bg-white text-black w-full font-bold text-lg p-2 rounded-md mt-4" onClick={handleGuestSignIn}>Sign In as Guest</button>
             
           </div>
         </div>
