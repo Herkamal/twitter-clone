@@ -1,4 +1,5 @@
 import BottomBanner from "@/components/BottomBanner";
+import Comment from "@/components/Modals/Comment";
 import Postfeed from "@/components/Postfeed";
 import Sidebar from "@/components/Sidebar";
 import Trending from "@/components/Trending";
@@ -14,6 +15,7 @@ export default function Home() {
         <Postfeed />
         <Trending />
       </div>
+      <Comment/>
       {!username && <BottomBanner />}
     </div>
   );
