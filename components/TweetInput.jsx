@@ -58,7 +58,7 @@ function TweetInput() {
               <LocationMarkerIcon className="h-[22px] text-[#1d9bf0]" />
             </div>
           </div>
-          <button onClick={sendTweet} disabled={!text} className="bg-[#1d9bf0] rounded-full px-4 py-1,5 disabled:opacity-50">
+          <button onClick={sendTweet} disabled={!text} className="bg-[#1d9bf0] rounded-full px-4 py-1.5 disabled:opacity-50">
             Tweet
           </button>
         </div>
